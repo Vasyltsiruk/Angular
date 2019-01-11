@@ -1,0 +1,23 @@
+<h2>My Heroes</h2>
+
+<div class="panel-body">
+  <form>
+    <div class="form-group">
+      <label class="col-md-4">Hero Name</label>
+      <input type="text" class="form-control"  #nameHero  />
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" (click)="add(nameHero.value)">Add</button>
+    </div>
+  </form>
+</div>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a [routerLink]="['/detail/', hero.id]">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="delete" title="delete hero"
+            (click)="delete(hero)">x</button>
+  </li>
+</ul>
